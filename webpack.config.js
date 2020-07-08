@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const postcssNormalize = require("postcss-normalize");
 
 module.exports = {
   entry: path.resolve(__dirname, "src", "index.js"),
@@ -17,7 +18,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: () => [postcssNormalize()],
+            },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
