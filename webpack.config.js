@@ -46,15 +46,19 @@ module.exports = {
           {
             loader: "sass-resources-loader",
             options: {
-              resources: ["./src/styles/__variables.scss"],
+              resources: [
+                "./src/styles/_variables.scss",
+                "./src/styles/_mixins.scss",
+              ],
             },
           },
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|eot|ttf|woff)$/,
         loader: "file-loader",
         options: {
+          name: "[name].[ext]",
           outputPath: "assets/media",
         },
       },
@@ -64,7 +68,6 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     open: true,
-    port: 3000,
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -1,26 +1,36 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../../components/Header";
-import Select from "../../components/Select";
-import Typography from "../../components/Typography";
-import { getAuthors, getPosts } from "../../redux/modules/selects";
+import Post from "../../components/Post";
 import { fetchAuthors } from "../../redux/modules/authors";
 import { fetchPosts } from "../../redux/modules/posts";
+import { getPostsWithAuthors } from "../../redux/modules/selects";
 
 function Home() {
   const dispatch = useDispatch();
-  const posts = useSelector(getPosts);
-  const authors = useSelector(getAuthors);
-
-  console.log(posts);
-  console.log(authors);
+  const posts = useSelector(getPostsWithAuthors);
 
   useEffect(() => {
-    dispatch(fetchAuthors());
-    dispatch(fetchPosts());
+    async function fetchData() {
+      await dispatch(fetchAuthors());
+      dispatch(fetchPosts());
+    }
+
+    fetchData();
   }, []);
 
-  return <div data-testid="home-screen" className="home"></div>;
+  return (
+    <div data-testid="home-screen" className="home">
+      {posts.map(({ author, title, publishedAt, body }) => (
+        <Post
+          key={title}
+          title={title}
+          publishedAt={publishedAt}
+          body={body}
+          author={author?.name}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default Home;

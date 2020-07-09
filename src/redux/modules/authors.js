@@ -5,9 +5,9 @@ const AUTHORS_SUCCESS = "tech/authors/SUCCESS";
 const AUTHORS_ERROR = "tech/authors/ERROR";
 
 const initialState = {
-  authors: [],
-  authorsLoading: false,
-  authorsError: false,
+  items: [],
+  loading: false,
+  error: false,
 };
 
 export default function reducer(state = initialState, { type, payload } = {}) {
@@ -15,18 +15,18 @@ export default function reducer(state = initialState, { type, payload } = {}) {
     case AUTHORS_LOADING:
       return {
         ...state,
-        authorsLoading: payload,
+        loading: payload,
       };
     case AUTHORS_SUCCESS:
       return {
         ...state,
-        authorsError: false,
-        authors: payload,
+        error: false,
+        items: payload,
       };
     case AUTHORS_ERROR:
       return {
         ...state,
-        authorsError: payload,
+        error: payload,
       };
     default:
       return state;
@@ -34,13 +34,15 @@ export default function reducer(state = initialState, { type, payload } = {}) {
 }
 
 export const fetchAuthors = () => async (dispatch) => {
-  try {
-    dispatch({ type: AUTHORS_LOADING, payload: true });
-    const { data } = await services.fetchAuthors();
-    dispatch({ type: AUTHORS_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: AUTHORS_ERROR, payload: true });
-  } finally {
-    dispatch({ type: AUTHORS_LOADING, payload: false });
-  }
+  return services
+    .fetchAuthors()
+    .then(({ data }) => {
+      dispatch({ type: AUTHORS_SUCCESS, payload: data });
+    })
+    .catch(() => {
+      dispatch({ type: AUTHORS_ERROR, payload: true });
+    })
+    .finally(() => {
+      dispatch({ type: AUTHORS_LOADING, payload: false });
+    });
 };

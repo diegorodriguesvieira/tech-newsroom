@@ -1,0 +1,12 @@
+@include map-spacings("margin", "m");
+@include map-spacings("padding", "p");
+
+:global .list-unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+:global .d-block {
+  display: block;
+}

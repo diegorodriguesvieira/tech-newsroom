@@ -1,0 +1,9 @@
+@mixin map-spacings($property, $symbol) {
+  @each $s in $spacings {
+    @each $p, $pv in $positions {
+      :global .#{$symbol}#{$p}-#{$s} {
+        #{$property}-#{$pv}: ($spacing * $s) !important;
+      }
+    }
+  }
+}

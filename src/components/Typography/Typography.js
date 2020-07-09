@@ -14,8 +14,16 @@ const variantMapping = {
   caption: "span",
 };
 
-function Typography({ children, color, variant, className, fontWeight }) {
-  const Component = variantMapping[variant] || "span";
+function Typography({
+  block,
+  children,
+  className,
+  color,
+  component,
+  fontWeight,
+  variant,
+}) {
+  const Component = component || variantMapping[variant] || "span";
 
   return (
     <Component
@@ -23,6 +31,7 @@ function Typography({ children, color, variant, className, fontWeight }) {
         styles[variant],
         styles[color],
         fontWeight && styles[fontWeight],
+        block && "d-block",
         className
       )}
     >
@@ -33,15 +42,19 @@ function Typography({ children, color, variant, className, fontWeight }) {
 
 Typography.defaultProps = {
   children: "",
-  color: null,
-  variant: "body1",
   className: "",
+  color: null,
+  component: null,
   fontWeight: null,
+  variant: "body1",
+  block: false,
 };
 
 Typography.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  component: PropTypes.node,
+  block: PropTypes.bool,
   variant: PropTypes.oneOf([
     "h1",
     "h2",

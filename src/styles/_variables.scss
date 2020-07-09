@@ -11,13 +11,22 @@ $primary: #7b5c92;
 $primary-light: #eee8f3;
 
 // Spacing
-$spacing: 1rem;
+$spacing: 1rem / 2;
+$spacings: (1, 2, 3, 4, 5);
+
+$positions: (
+  t: "top",
+  r: "right",
+  b: "bottom",
+  l: "left",
+);
 
 // Typography
 
 $font-family-sans-serif: Montserrat, sans-serif;
 $font-size-base: 1rem;
 $font-size-small: $font-size-base * 0.75;
+$font-icon-size: 1.5rem;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
@@ -34,7 +43,7 @@ $headings-font-sizes: (
 
 $headings-line-height: 1.2;
 $headings-font-weight: 700;
-$headings-margin-bottom: $spacing / 2 !default;
+$headings-margin-bottom: $spacing !default;
 
 $colors: (
   "primary": $primary,
@@ -43,3 +52,5 @@ $colors: (
   "gray-light": $gray-300,
   "white": $white,
 ) !default;
+
+$border-radius: 4px;

@@ -5,9 +5,9 @@ const POSTS_SUCCESS = "tech/posts/SUCCESS";
 const POSTS_ERROR = "tech/posts/ERROR";
 
 const initialState = {
-  posts: [],
-  postsLoading: false,
-  postsError: false,
+  items: [],
+  loading: false,
+  error: false,
 };
 
 export default function reducer(state = initialState, { type, payload } = {}) {
@@ -15,18 +15,18 @@ export default function reducer(state = initialState, { type, payload } = {}) {
     case POSTS_LOADING:
       return {
         ...state,
-        postsLoading: payload,
+        loading: payload,
       };
     case POSTS_SUCCESS:
       return {
         ...state,
-        postsError: false,
-        posts: payload,
+        error: false,
+        items: payload,
       };
     case POSTS_ERROR:
       return {
         ...state,
-        postsError: payload,
+        error: payload,
       };
     default:
       return state;
@@ -34,13 +34,15 @@ export default function reducer(state = initialState, { type, payload } = {}) {
 }
 
 export const fetchPosts = () => async (dispatch) => {
-  try {
-    dispatch({ type: POSTS_LOADING, payload: true });
-    const { data } = await services.fetchPosts();
-    dispatch({ type: POSTS_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: POSTS_ERROR, payload: true });
-  } finally {
-    dispatch({ type: POSTS_LOADING, payload: false });
-  }
+  return services
+    .fetchPosts()
+    .then(({ data }) => {
+      dispatch({ type: POSTS_SUCCESS, payload: data });
+    })
+    .catch(() => {
+      dispatch({ type: POSTS_ERROR, payload: true });
+    })
+    .finally(() => {
+      dispatch({ type: POSTS_LOADING, payload: false });
+    });
 };

@@ -1,12 +1,13 @@
+import clsx from "clsx";
 import React from "react";
-import logo from "../../assets/logo.svg";
+import logo from "../assets/logo.svg";
 import "./Header.scss";
 
 function Header() {
   return (
-    <div>
+    <header className={clsx("mb-3", "mt-3")}>
       <img alt="Tech Newsroom" src={logo} />
-    </div>
+    </header>
   );
 }
 
