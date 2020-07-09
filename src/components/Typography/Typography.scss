@@ -22,12 +22,6 @@
   color: $gray-300;
 }
 
-@each $color, $value in $colors {
-  .#{$color} {
-    color: #{$value} !important;
-  }
-}
-
 .regular {
   font-weight: $font-weight-regular !important;
 }

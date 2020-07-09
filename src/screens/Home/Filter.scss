@@ -1,0 +1,13 @@
+.filter {
+  min-height: $filter-height;
+}
+
+.select {
+  @include breakpoint-max(sm) {
+    width: 100%;
+
+    & + & {
+      margin: $spacing 0 ($spacing * 2) 0;
+    }
+  }
+}

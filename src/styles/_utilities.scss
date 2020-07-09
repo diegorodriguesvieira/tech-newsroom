@@ -10,3 +10,9 @@
 :global .d-block {
   display: block;
 }
+
+@each $color, $value in $colors {
+  :global .#{$color} {
+    color: #{$value} !important;
+  }
+}

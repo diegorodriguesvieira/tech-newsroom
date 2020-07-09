@@ -47,6 +47,7 @@ $headings-margin-bottom: $spacing !default;
 
 $colors: (
   "primary": $primary,
+  "primary-light": $primary-light,
   "gray-dark": $gray-500,
   "gray": $gray-400,
   "gray-light": $gray-300,
@@ -54,3 +55,16 @@ $colors: (
 ) !default;
 
 $border-radius: 4px;
+
+$container-max-width: 1320px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+
+$filter-height: $spacing * 8;

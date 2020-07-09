@@ -29,7 +29,7 @@ function Typography({
     <Component
       className={clsx(
         styles[variant],
-        styles[color],
+        color,
         fontWeight && styles[fontWeight],
         block && "d-block",
         className
@@ -70,6 +70,7 @@ Typography.propTypes = {
     "gray-light",
     "gray",
     "primary",
+    "primary-light",
     "white",
     null,
   ]),

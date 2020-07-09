@@ -1,19 +1,24 @@
+import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 import { useSelector } from "react-redux";
-import { getPosts } from "../redux/modules/selects";
-import Sidebar from "./Sidebar";
+import Container from "../components/Container";
+import { getNewestPosts } from "../redux/modules/selects";
 import Header from "./Header";
+import styles from "./Layout.scss";
+import Sidebar from "./Sidebar";
 
 function Layout({ children }) {
-  const posts = useSelector(getPosts);
+  const posts = useSelector(getNewestPosts);
 
   return (
-    <div>
+    <Container>
       <Header />
-      <main>{children}</main>
-      <Sidebar posts={posts} />
-    </div>
+      <div className={clsx(styles.content, "mb-2")}>
+        <main>{children}</main>
+        <Sidebar posts={posts} />
+      </div>
+    </Container>
   );
 }
 

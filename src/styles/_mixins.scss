@@ -7,3 +7,15 @@
     }
   }
 }
+
+@mixin breakpoint-up($name) {
+  @media (min-width: map-get($grid-breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-max($name) {
+  @media (max-width: map-get($grid-breakpoints, $name)) {
+    @content;
+  }
+}

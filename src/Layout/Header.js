@@ -5,7 +5,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <header className={clsx("mb-3", "mt-3")}>
+    <header className={clsx("pb-3", "pt-3")}>
       <img alt="Tech Newsroom" src={logo} />
     </header>
   );

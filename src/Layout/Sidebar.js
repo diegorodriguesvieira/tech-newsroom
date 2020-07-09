@@ -21,17 +21,22 @@ function Sidebar({ posts }) {
   };
 
   return (
-    <aside className={styles.sidebar}>
-      <Typography
-        className="mb-3"
-        color="gray"
-        fontWeight="medium"
-        variant="h5"
-      >
-        Últimas notícias
-      </Typography>
-      <ul className="list-unstyled">{posts.map(renderItem)}</ul>
-    </aside>
+    Array.isArray(posts) &&
+    posts.length > 0 && (
+      <aside>
+        <div className={styles.sidebar}>
+          <Typography
+            className="mb-3"
+            color="gray"
+            fontWeight="medium"
+            variant="h5"
+          >
+            Últimas notícias
+          </Typography>
+          <ul className="list-unstyled">{posts.map(renderItem)}</ul>
+        </div>
+      </aside>
+    )
   );
 }
 

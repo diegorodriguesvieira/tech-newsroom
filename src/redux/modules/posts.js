@@ -1,13 +1,23 @@
+import { filters } from "../../constants";
 import * as services from "../../services";
 
 const POSTS_LOADING = "tech/posts/LOADING";
 const POSTS_SUCCESS = "tech/posts/SUCCESS";
 const POSTS_ERROR = "tech/posts/ERROR";
 
+const POSTS_FILTER_SET = "tech/posts/FILTER_SET";
+const POSTS_ORDER_SET = "tech/posts/ORDER_SET";
+
 const initialState = {
   items: [],
   loading: false,
   error: false,
+  order: {
+    date: filters.desc,
+  },
+  filter: {
+    author: "",
+  },
 };
 
 export default function reducer(state = initialState, { type, payload } = {}) {
@@ -28,6 +38,16 @@ export default function reducer(state = initialState, { type, payload } = {}) {
         ...state,
         error: payload,
       };
+    case POSTS_FILTER_SET:
+      return {
+        ...state,
+        filter: payload,
+      };
+    case POSTS_ORDER_SET:
+      return {
+        ...state,
+        order: payload,
+      };
     default:
       return state;
   }
@@ -46,3 +66,9 @@ export const fetchPosts = () => async (dispatch) => {
       dispatch({ type: POSTS_LOADING, payload: false });
     });
 };
+
+export const setFilter = (payload) => (dispatch) =>
+  dispatch({ type: POSTS_FILTER_SET, payload });
+
+export const setOrder = (payload) => (dispatch) =>
+  dispatch({ type: POSTS_ORDER_SET, payload });

@@ -1,8 +1,10 @@
+import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 import styles from "./Select.scss";
 
 function Select({
+  className,
   disabled,
   label,
   labelKey,
@@ -11,21 +13,24 @@ function Select({
   testId,
   valueKey,
 }) {
-  const computedOptions = Array.isArray(options) ? options : [];
+  let computedOptions = Array.isArray(options) ? options : [];
 
   if (label) {
-    computedOptions.unshift({
-      [labelKey]: label.toUpperCase(),
-      [valueKey]: -1,
-    });
+    computedOptions = [
+      {
+        [labelKey]: label.toUpperCase(),
+        [valueKey]: "",
+      },
+      ...computedOptions,
+    ];
   }
 
   return (
     <select
-      disabled={disabled}
+      className={clsx(styles.select, className)}
       data-testid={testId}
+      disabled={disabled}
       onChange={onChange}
-      className={styles.select}
     >
       {computedOptions.map((option) => (
         <option
@@ -41,6 +46,7 @@ function Select({
 }
 
 Select.defaultProps = {
+  className: "",
   disabled: false,
   label: "",
   labelKey: "label",
@@ -51,6 +57,7 @@ Select.defaultProps = {
 };
 
 Select.propTypes = {
+  className: PropTypes.string,
   disabled: PropTypes.bool,
   label: PropTypes.string,
   labelKey: PropTypes.string,

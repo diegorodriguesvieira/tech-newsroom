@@ -2,4 +2,14 @@
   background-color: $gray-100;
   padding: 24px 16px;
   border-radius: $border-radius;
+
+  @include breakpoint-up(lg) {
+    margin-top: $filter-height;
+    width: 275px;
+    margin-left: $spacing * 5;
+  }
+
+  @include breakpoint-up(xl) {
+    margin-left: $spacing * 10;
+  }
 }
