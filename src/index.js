@@ -1,11 +1,19 @@
+import "normalize.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./styles.css";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
+import store from "./store";
+import "./styles/styles.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

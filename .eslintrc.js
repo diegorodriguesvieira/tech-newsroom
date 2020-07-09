@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
-    jest: true
+    jest: true,
   },
   extends: ["plugin:react/recommended", "airbnb", "prettier", "prettier/react"],
   parserOptions: {
@@ -15,5 +15,6 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "react/jsx-filename-extension": ["error", { extensions: [".js"] }],
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
   },
 };

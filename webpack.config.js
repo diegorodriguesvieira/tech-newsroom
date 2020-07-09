@@ -1,13 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const postcssNormalize = require("postcss-normalize");
 
 module.exports = {
   entry: path.resolve(__dirname, "src", "index.js"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -17,21 +17,36 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
+        test: /\.(s[ac]ss|css)$/i,
         use: [
-          "style-loader",
+          { loader: "style-loader" },
           {
             loader: "css-loader",
             options: {
-              importLoaders: 1,
-              modules: true,
+              sourceMap: true,
+              modules: {
+                mode: "local",
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
             },
           },
           {
             loader: "postcss-loader",
             options: {
+              sourceMap: true,
               ident: "postcss",
-              plugins: () => [postcssNormalize()],
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "sass-resources-loader",
+            options: {
+              resources: ["./src/styles/__variables.scss"],
             },
           },
         ],
@@ -45,6 +60,12 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    open: true,
+    port: 3000,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
@@ -52,7 +73,7 @@ module.exports = {
       inject: "body",
     }),
     new CopyPlugin({
-      patterns: [{ from: "public" }],
+      patterns: [{ from: "public", to: "dist" }],
     }),
   ],
 };

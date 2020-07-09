@@ -1,0 +1,29 @@
+@each $heading, $font-size in $headings-font-sizes {
+  h#{$heading},
+  .h#{$heading} {
+    font-size: $font-size;
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    margin-bottom: $headings-margin-bottom;
+    margin-top: 0;
+    color: $gray-500;
+  }
+}
+
+.body1 {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  margin: 0;
+  color: $gray-400;
+}
+
+.caption {
+  font-size: $font-size-small;
+  color: $gray-300;
+}
+
+@each $color, $value in $colors {
+  .#{$color} {
+    color: #{$value} !important;
+  }
+}
