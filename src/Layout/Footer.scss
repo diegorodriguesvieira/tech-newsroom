@@ -1,0 +1,19 @@
+.footer {
+  background-color: $gray-100;
+}
+
+.container {
+  text-align: center;
+
+  @include breakpoint-up(sm) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  @include breakpoint-max(sm) {
+    margin-bottom: $spacing * 2;
+  }
+}

@@ -9,6 +9,10 @@ import Typography from "../Typography";
 import styles from "./Post.scss";
 
 function Post({ author, body, publishedAt, title }) {
+  const whatsApp = `https://wa.me/?text=${body}`;
+  const twitter = `https://twitter.com/intent/tweet?text=${body}`;
+  const facebok = `https://www.facebook.com/sharer/sharer.php?u=${body}`;
+
   return (
     <section className="mb-4">
       <Divider className="mb-4" />
@@ -18,9 +22,20 @@ function Post({ author, body, publishedAt, title }) {
           <Time>{publishedAt}</Time>
         </div>
         <div>
-          <Icon name="facebook" color="gray-light" />
-          <Icon name="twitter" color="gray-light" />
-          <Icon name="whatsapp" color="gray-light" />
+          <a
+            className={styles.socialShare}
+            href={facebok}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Icon name="facebook" />
+          </a>
+          <a className={styles.socialShare} href={twitter} rel="noreferrer">
+            <Icon name="twitter" />
+          </a>
+          <a className={styles.socialShare} href={whatsApp} rel="noreferrer">
+            <Icon name="whatsapp" />
+          </a>
         </div>
       </div>
       <Typography className="mb-4" variant="h1">

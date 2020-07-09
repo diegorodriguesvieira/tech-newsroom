@@ -10,7 +10,7 @@ function Icon({ name, color }) {
 }
 
 Icon.defaultProps = {
-  color: "primary",
+  color: null,
 };
 
 Icon.propTypes = {
@@ -22,6 +22,7 @@ Icon.propTypes = {
     "primary",
     "primary-light",
     "white",
+    null,
   ]),
 };
 
