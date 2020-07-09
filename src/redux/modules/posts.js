@@ -33,10 +33,10 @@ export default function reducer(state = initialState, { type, payload } = {}) {
   }
 }
 
-export const fetchPosts = () => (dispatch) => {
+export const fetchPosts = () => async (dispatch) => {
   try {
     dispatch({ type: POSTS_LOADING, payload: true });
-    const { data } = services.fetchPosts();
+    const { data } = await services.fetchPosts();
     dispatch({ type: POSTS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: POSTS_ERROR, payload: true });

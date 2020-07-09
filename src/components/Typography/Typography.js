@@ -14,11 +14,18 @@ const variantMapping = {
   caption: "span",
 };
 
-function Typography({ children, color, variant }) {
+function Typography({ children, color, variant, className, fontWeight }) {
   const Component = variantMapping[variant] || "span";
 
   return (
-    <Component className={clsx(styles[variant], styles[color])}>
+    <Component
+      className={clsx(
+        styles[variant],
+        styles[color],
+        fontWeight && styles[fontWeight],
+        className
+      )}
+    >
       {children}
     </Component>
   );
@@ -26,12 +33,15 @@ function Typography({ children, color, variant }) {
 
 Typography.defaultProps = {
   children: "",
-  variant: "body1",
   color: null,
+  variant: "body1",
+  className: "",
+  fontWeight: null,
 };
 
 Typography.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   variant: PropTypes.oneOf([
     "h1",
     "h2",
@@ -50,6 +60,7 @@ Typography.propTypes = {
     "white",
     null,
   ]),
+  fontWeight: PropTypes.oneOf(["regular", "medium", "bold", null]),
 };
 
 export default Typography;

@@ -11,8 +11,8 @@ function RouteWrapper({ children, layout: Layout }) {
 }
 
 RouteWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
-  layout: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
+  layout: PropTypes.func.isRequired,
 };
 
 export default RouteWrapper;

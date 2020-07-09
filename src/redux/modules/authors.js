@@ -33,10 +33,10 @@ export default function reducer(state = initialState, { type, payload } = {}) {
   }
 }
 
-export const fetchAuthors = () => (dispatch) => {
+export const fetchAuthors = () => async (dispatch) => {
   try {
     dispatch({ type: AUTHORS_LOADING, payload: true });
-    const { data } = services.fetchAuthors();
+    const { data } = await services.fetchAuthors();
     dispatch({ type: AUTHORS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: AUTHORS_ERROR, payload: true });

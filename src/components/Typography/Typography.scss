@@ -27,3 +27,15 @@
     color: #{$value} !important;
   }
 }
+
+.regular {
+  font-weight: $font-weight-regular !important;
+}
+
+.medium {
+  font-weight: $font-weight-medium !important;
+}
+
+.bold {
+  font-weight: $font-weight-bold !important;
+}
