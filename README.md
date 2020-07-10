@@ -17,8 +17,8 @@ Checa erros de sintaxe no código do projeto.
 
 ### `yarn run build`
 
-Build o projeto para produção na pasta `dist`.
+Compila o projeto no modo produção para a pasta `dist`.
 
 ### `yarn run pretier`
 
-Formata o códito seguindo as regras do prettier mesclando com as regras do eslint.
+Formata o códito seguindo as regras do `prettier` mesclando com as regras do `eslint`.
