@@ -1,6 +1,6 @@
 # Tech Newsroom
 
-## Principais tecnologias
+### Principais tecnologias
 
 - React
 - React Router
