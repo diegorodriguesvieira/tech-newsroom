@@ -24,6 +24,7 @@ function Sidebar({ posts }) {
     <aside>
       <div className={styles.sidebar}>
         <Typography
+          component="h2"
           className="mb-3"
           color="gray"
           fontWeight="medium"
