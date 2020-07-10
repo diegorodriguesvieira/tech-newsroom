@@ -4,6 +4,7 @@ import { filters } from "../../constants";
 import { orderPostsByDate } from "./helpers";
 
 export const isPostsLoading = (state) => state.posts.loading;
+export const isPostsError = (state) => state.posts.error;
 
 export const getAuthors = (state) => state.authors.items;
 

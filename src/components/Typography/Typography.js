@@ -55,7 +55,7 @@ Typography.defaultProps = {
 Typography.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  component: PropTypes.node,
+  component: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
   block: PropTypes.bool,
   variant: PropTypes.oneOf([
     "h1",

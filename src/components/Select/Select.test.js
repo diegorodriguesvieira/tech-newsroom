@@ -11,7 +11,7 @@ describe("Select", () => {
 
   test("Simulates selection", () => {
     const { getAllByTestId, getByTestId } = render(
-      <Select options={options} />
+      <Select name="test" options={options} />
     );
     fireEvent.change(getByTestId("select"), { target: { value: 2 } });
     const allOptions = getAllByTestId("select-option");
@@ -20,12 +20,14 @@ describe("Select", () => {
   });
 
   test("Select should be disabled", () => {
-    const { getByTestId } = render(<Select options={options} disabled />);
+    const { getByTestId } = render(
+      <Select name="test" options={options} disabled />
+    );
     expect(getByTestId("select")).toHaveAttribute("disabled");
   });
 
   test("Select renders if options is invalid", () => {
-    const { getByTestId } = render(<Select options={undefined} />);
+    const { getByTestId } = render(<Select name="test" options={undefined} />);
     expect(getByTestId("select").value).toBe("");
   });
 });

@@ -9,13 +9,16 @@ import {
   getAuthors,
   getPostsFilteredOrdered,
   isPostsLoading,
+  isPostsError,
 } from "../../redux/modules/selects";
 import Filter from "./Filter";
+import Typography from "../../components/Typography";
 
 function Home() {
   const dispatch = useDispatch();
   const authors = useSelector(getAuthors);
   const isLoading = useSelector(isPostsLoading);
+  const isError = useSelector(isPostsError);
   const posts = useSelector(getPostsFilteredOrdered);
 
   useEffect(() => {
@@ -46,6 +49,11 @@ function Home() {
         <div className={clsx("mt-5", "mb-5")}>
           <Loading />
         </div>
+      )}
+      {isError && (
+        <Typography component="p" variant="h5">
+          Erro ao carregar os posts. Recarregue a página.
+        </Typography>
       )}
       {posts.map(({ author, title, publishedAt, body }) => (
         <Post
