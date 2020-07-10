@@ -1,7 +1,7 @@
 import format from "date-fns/format";
-import orderBy from "lodash/orderBy";
 import { createSelector } from "reselect";
 import { filters } from "../../constants";
+import { orderPostsByDate } from "./helpers";
 
 export const getAuthors = (state) => state.authors.items;
 
@@ -45,9 +45,8 @@ export const getPostsFilteredOrdered = createSelector(
   (posts, order, filter) => {
     const { author } = filter;
 
-    const orderedPosts = orderBy(
+    const orderedPosts = orderPostsByDate(
       posts,
-      "metadata.publishedAt",
       order.date ? order.date : filters.desc
     );
 
@@ -61,5 +60,5 @@ export const getPostsFilteredOrdered = createSelector(
 );
 
 export const getNewestPosts = createSelector([getPostsWithAuthors], (posts) => {
-  return orderBy(posts, "metadata.publishedAt", filters.desc);
+  return orderPostsByDate(posts, filters.desc);
 });
