@@ -2,12 +2,13 @@
 
 ### Principais tecnologias
 
-- React
-- React Router
-- React Testing Library
-- Redux
-- Redux Thunk
-- Sass
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/web/guides/quick-start)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+- [Redux](https://redux.js.org/)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [Redux Ducks Pattern](https://github.com/erikras/ducks-modular-redux)
+- [Sass](https://sass-lang.com/)
 
 > :warning: **Antes de executar qualquer comando abaixo instale as dependências via comando `npm install`**
 
