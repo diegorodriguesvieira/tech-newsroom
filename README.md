@@ -13,14 +13,14 @@ Abra [http://localhost:3003](http://localhost:3003) para visualizar no browser.
 
 Executa os testes disponíveis.
 
-### `yarn run lint`
+### `npm run lint`
 
 Checa erros de sintaxe no código do projeto.
 
-### `yarn run build`
+### `npm run build`
 
 Compila o projeto no modo produção para a pasta `dist`.
 
-### `yarn run pretier`
+### `npm run pretier`
 
 Formata o códito seguindo as regras do `prettier` mesclando com as regras do `eslint`.
