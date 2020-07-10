@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isDevEnv = argv.mode !== "production";
@@ -84,6 +85,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new CleanWebpackPlugin(),
+      new FaviconsWebpackPlugin("./src/assets/favicon.svg"),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src", "index.html"),
         filename: "index.html",
