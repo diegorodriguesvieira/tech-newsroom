@@ -9,9 +9,10 @@ import Typography from "../Typography";
 import styles from "./Post.scss";
 
 function Post({ author, body, publishedAt, title }) {
-  const whatsApp = `https://wa.me/?text=${body}`;
-  const twitter = `https://twitter.com/intent/tweet?text=${body}`;
-  const facebok = `https://www.facebook.com/sharer/sharer.php?u=${body}`;
+  const url = window.location.href;
+  const whatsApp = `https://wa.me/?text=${url}`;
+  const twitter = `https://twitter.com/intent/tweet?text=${url}`;
+  const facebok = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
 
   return (
     <section className="mb-4">
