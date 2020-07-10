@@ -8,6 +8,7 @@ function Select({
   disabled,
   label,
   labelKey,
+  name,
   onChange,
   options,
   testId,
@@ -26,22 +27,28 @@ function Select({
   }
 
   return (
-    <select
-      className={clsx(styles.select, className)}
-      data-testid={testId}
-      disabled={disabled}
-      onChange={onChange}
-    >
-      {computedOptions.map((option) => (
-        <option
-          data-testid="select-option"
-          key={option[valueKey]}
-          value={option[valueKey]}
-        >
-          {option[labelKey]}
-        </option>
-      ))}
-    </select>
+    <>
+      <label className="sr-only" htmlFor={name}>
+        label
+      </label>
+      <select
+        className={clsx(styles.select, className)}
+        data-testid={testId}
+        disabled={disabled}
+        onChange={onChange}
+        id={name}
+      >
+        {computedOptions.map((option) => (
+          <option
+            data-testid="select-option"
+            key={option[valueKey]}
+            value={option[valueKey]}
+          >
+            {option[labelKey]}
+          </option>
+        ))}
+      </select>
+    </>
   );
 }
 
@@ -61,6 +68,7 @@ Select.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   labelKey: PropTypes.string,
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   options: PropTypes.arrayOf(PropTypes.object),
   testId: PropTypes.string,

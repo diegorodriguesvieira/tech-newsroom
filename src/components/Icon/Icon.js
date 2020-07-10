@@ -17,7 +17,6 @@ Icon.propTypes = {
   name: PropTypes.oneOf(iconNames).isRequired,
   color: PropTypes.oneOf([
     "gray-dark",
-    "gray-light",
     "gray",
     "primary",
     "primary-light",

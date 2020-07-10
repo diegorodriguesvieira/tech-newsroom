@@ -14,17 +14,19 @@ function Filter({ data, onChangeFilter, onChangeOrder }) {
   return (
     <div className={styles.filter}>
       <Select
-        className={clsx("mr-2", styles.select)}
+        className={clsx("mr-2", "mb-1", styles.select)}
         label="Filtrar por autor"
         labelKey="name"
+        name="author"
         onChange={onChangeFilter}
         options={data}
         valueKey="id"
       />
       <Select
-        className={styles.select}
-        onChange={onChangeOrder}
+        className={clsx("mb-2", styles.select)}
         label="Ordenar por"
+        name="order"
+        onChange={onChangeOrder}
         options={orderBy}
       />
     </div>

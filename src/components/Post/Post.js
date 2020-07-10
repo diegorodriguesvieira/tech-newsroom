@@ -29,12 +29,15 @@ function Post({ author, body, publishedAt, title }) {
             rel="noreferrer"
             target="_blank"
           >
+            <Typography className="sr-only">Facebook</Typography>
             <Icon name="facebook" />
           </a>
           <a className={styles.socialShare} href={twitter} rel="noreferrer">
+            <Typography className="sr-only">Twitter</Typography>
             <Icon name="twitter" />
           </a>
           <a className={styles.socialShare} href={whatsApp} rel="noreferrer">
+            <Typography className="sr-only">WhatsApp</Typography>
             <Icon name="whatsapp" />
           </a>
         </div>

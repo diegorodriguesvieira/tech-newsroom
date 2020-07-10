@@ -67,7 +67,6 @@ Typography.propTypes = {
   ]),
   color: PropTypes.oneOf([
     "gray-dark",
-    "gray-light",
     "gray",
     "primary",
     "primary-light",

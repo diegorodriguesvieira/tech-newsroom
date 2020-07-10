@@ -16,3 +16,7 @@
     color: #{$value} !important;
   }
 }
+
+:global .sr-only {
+  @include visually-hidden();
+}

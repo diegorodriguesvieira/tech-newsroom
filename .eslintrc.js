@@ -16,5 +16,12 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": ["error", { extensions: [".js"] }],
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        labelAttributes: ["label"],
+        depth: 3,
+      },
+    ],
   },
 };
