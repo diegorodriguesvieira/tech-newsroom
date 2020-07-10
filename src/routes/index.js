@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Layout from "../Layout";
 import Home from "../screens/Home";
 import NotFound from "../screens/NotFound";
@@ -11,9 +11,9 @@ function Routes() {
       <RouterWrapper exact path="/" layout={Layout}>
         <Home />
       </RouterWrapper>
-      <RouterWrapper path="*" layout={Layout}>
+      <Route path="*">
         <NotFound />
-      </RouterWrapper>
+      </Route>
     </Switch>
   );
 }

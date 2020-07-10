@@ -22,11 +22,12 @@ function Typography({
   component,
   fontWeight,
   variant,
+  ...rest
 }) {
-  const Component = component || variantMapping[variant] || "span";
+  const MyCustomComponent = component || variantMapping[variant] || "span";
 
   return (
-    <Component
+    <MyCustomComponent
       className={clsx(
         styles[variant],
         color,
@@ -34,9 +35,10 @@ function Typography({
         block && "d-block",
         className
       )}
+      {...rest}
     >
       {children}
-    </Component>
+    </MyCustomComponent>
   );
 }
 

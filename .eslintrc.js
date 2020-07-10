@@ -23,5 +23,13 @@ module.exports = {
         depth: 3,
       },
     ],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        html: "enforce",
+        custom: "ignore",
+        exceptions: [],
+      },
+    ],
   },
 };
