@@ -3,6 +3,8 @@ import { createSelector } from "reselect";
 import { filters } from "../../constants";
 import { orderPostsByDate } from "./helpers";
 
+export const isPostsLoading = (state) => state.posts.loading;
+
 export const getAuthors = (state) => state.authors.items;
 
 export const getOrder = (state) => state.posts.order;

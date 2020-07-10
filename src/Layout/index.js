@@ -17,7 +17,7 @@ function Layout({ children }) {
       <Container>
         <Header />
         <div className={clsx(styles.content, "mb-2")}>
-          <main>{children}</main>
+          <main className="flex">{children}</main>
           <Sidebar posts={posts} />
         </div>
       </Container>

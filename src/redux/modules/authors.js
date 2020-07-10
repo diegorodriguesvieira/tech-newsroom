@@ -34,6 +34,7 @@ export default function reducer(state = initialState, { type, payload } = {}) {
 }
 
 export const fetchAuthors = () => async (dispatch) => {
+  dispatch({ type: AUTHORS_LOADING, payload: true });
   return services
     .fetchAuthors()
     .then(({ data }) => {

@@ -21,22 +21,21 @@ function Sidebar({ posts }) {
   };
 
   return (
-    Array.isArray(posts) &&
-    posts.length > 0 && (
-      <aside>
-        <div className={styles.sidebar}>
-          <Typography
-            className="mb-3"
-            color="gray"
-            fontWeight="medium"
-            variant="h5"
-          >
-            Últimas notícias
-          </Typography>
+    <aside>
+      <div className={styles.sidebar}>
+        <Typography
+          className="mb-3"
+          color="gray"
+          fontWeight="medium"
+          variant="h5"
+        >
+          Últimas notícias
+        </Typography>
+        {Array.isArray(posts) && posts.length > 0 && (
           <ul className="list-unstyled">{posts.map(renderItem)}</ul>
-        </div>
-      </aside>
-    )
+        )}
+      </div>
+    </aside>
   );
 }
 

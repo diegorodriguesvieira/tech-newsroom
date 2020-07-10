@@ -54,6 +54,7 @@ export default function reducer(state = initialState, { type, payload } = {}) {
 }
 
 export const fetchPosts = () => async (dispatch) => {
+  dispatch({ type: POSTS_LOADING, payload: true });
   return services
     .fetchPosts()
     .then(({ data }) => {

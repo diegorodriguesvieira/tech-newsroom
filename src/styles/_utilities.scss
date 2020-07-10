@@ -20,3 +20,7 @@
 :global .sr-only {
   @include visually-hidden();
 }
+
+:global .flex {
+  flex: 1;
+}
