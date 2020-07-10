@@ -1,3 +1,14 @@
+# Tech Newsroom
+
+## Principais tecnologias
+
+- React
+- React Router
+- React Testing Library
+- Redux
+- Redux Thunk
+- Sass
+
 > :warning: **Antes de executar qualquer comando abaixo instale as dependências via comando `npm install`**
 
 ### Comandos disponíveis
