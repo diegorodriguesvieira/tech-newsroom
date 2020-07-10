@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose --watchAll=false --coverage",
     "start": "webpack-dev-server",
-    "build": "webpack --mode production",
+    "build": "webpack -p --mode production",
     "lint": "eslint ./src/**/*.js",
     "prettier": "prettier --write './src/**/*.js'"
   },
@@ -48,6 +48,8 @@
     "autoprefixer": "^9.8.4",
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.6.0",
     "eslint": "^7.4.0",
@@ -62,6 +64,7 @@
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
+    "lodash-webpack-plugin": "^0.11.5",
     "postcss-loader": "^3.0.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",

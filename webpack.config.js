@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "src", "index.js"),
@@ -23,7 +25,6 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
               modules: {
                 mode: "local",
                 localIdentName: "[name]__[local]--[hash:base64:5]",
@@ -33,15 +34,11 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-              sourceMap: true,
               ident: "postcss",
             },
           },
           {
             loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
           },
           {
             loader: "sass-resources-loader",
@@ -69,7 +66,20 @@ module.exports = {
     hot: true,
     open: true,
   },
+  devtool: "source-map",
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      name: false,
+    },
+  },
   plugins: [
+    new LodashModuleReplacementPlugin({
+      collections: true,
+      paths: true,
+      shorthands: true,
+    }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
       filename: "index.html",
