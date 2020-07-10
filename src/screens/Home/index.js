@@ -22,8 +22,8 @@ function Home() {
   const posts = useSelector(getPostsFilteredOrdered);
 
   useEffect(() => {
-    async function fetchData() {
-      await dispatch(fetchAuthors());
+    function fetchData() {
+      dispatch(fetchAuthors());
       dispatch(fetchPosts());
     }
 
