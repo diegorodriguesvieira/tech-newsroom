@@ -1,0 +1,14 @@
+.socialShare {
+  text-decoration: none;
+  display: inline-block;
+  color: $gray-300;
+  margin-left: $spacing * 2;
+
+  & i {
+    transition: all ease 0.25s;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

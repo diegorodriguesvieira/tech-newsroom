@@ -3,17 +3,12 @@ import PropTypes from "prop-types";
 import React from "react";
 import Author from "../Author";
 import Divider from "../Divider";
-import Icon from "../Icon";
 import Time from "../Time";
 import Typography from "../Typography";
 import styles from "./Post.scss";
+import SocialSharel from "./SocialShare";
 
 function Post({ author, body, publishedAt, title }) {
-  const url = window.location.href;
-  const whatsApp = `https://wa.me/?text=${url}`;
-  const twitter = `https://twitter.com/intent/tweet?text=${url}`;
-  const facebok = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-
   return (
     <section className="mb-4">
       <Divider className="mb-4" />
@@ -22,25 +17,7 @@ function Post({ author, body, publishedAt, title }) {
           <Author className="mb-1">{author}</Author>
           <Time>{publishedAt}</Time>
         </div>
-        <div>
-          <a
-            className={styles.socialShare}
-            href={facebok}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Typography className="sr-only">Facebook</Typography>
-            <Icon name="facebook" />
-          </a>
-          <a className={styles.socialShare} href={twitter} rel="noreferrer">
-            <Typography className="sr-only">Twitter</Typography>
-            <Icon name="twitter" />
-          </a>
-          <a className={styles.socialShare} href={whatsApp} rel="noreferrer">
-            <Typography className="sr-only">WhatsApp</Typography>
-            <Icon name="whatsapp" />
-          </a>
-        </div>
+        <SocialSharel />
       </div>
       <Typography className="mb-4" variant="h1">
         {title}

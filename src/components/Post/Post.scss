@@ -3,18 +3,3 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
-.socialShare {
-  text-decoration: none;
-  display: inline-block;
-  color: $gray-300;
-  margin-left: $spacing;
-
-  & i {
-    transition: all ease 0.25s;
-
-    &:hover {
-      color: $primary;
-    }
-  }
-}
