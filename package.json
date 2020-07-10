@@ -4,7 +4,7 @@
   "description": "A front-end test for the company Axur.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --watchAll=false",
+    "test": "jest --verbose --watchAll=false --runInBand --detectOpenHandles",
     "start": "webpack-dev-server",
     "build": "webpack --mode production",
     "lint": "eslint ./src/**/*.js",
