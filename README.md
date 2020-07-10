@@ -1,4 +1,6 @@
-## Comandos disponíveis
+> :warning: **Antes de executar qualquer comando abaixo instale as dependências via comando `npm install`**
+
+### Comandos disponíveis
 
 No diretório do projeto, você pode executar os seguintes comandos:
 
