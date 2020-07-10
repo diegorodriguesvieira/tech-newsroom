@@ -81,6 +81,7 @@ module.exports = (env, argv) => {
       historyApiFallback: true,
       hot: true,
       open: true,
+      port: 3003,
       stats: "minimal",
     },
     plugins: [
