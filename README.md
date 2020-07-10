@@ -1,5 +1,9 @@
 # Tech Newsroom
 
+### Live demo
+
+[https://tech-newsroom.vercel.app](https://tech-newsroom.vercel.app)
+
 ### Principais tecnologias
 
 - [React](https://reactjs.org/)
