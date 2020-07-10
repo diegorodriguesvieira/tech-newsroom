@@ -55,15 +55,16 @@ function Home() {
           Erro ao carregar os posts. Recarregue a página.
         </Typography>
       )}
-      {posts.map(({ author, title, publishedAt, body }) => (
-        <Post
-          author={author?.name}
-          body={body}
-          key={title}
-          publishedAt={publishedAt}
-          title={title}
-        />
-      ))}
+      {Array.isArray(posts) &&
+        posts.map(({ author, title, publishedAt, body }) => (
+          <Post
+            author={author?.name}
+            body={body}
+            key={title}
+            publishedAt={publishedAt}
+            title={title}
+          />
+        ))}
     </div>
   );
 }
