@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isDevEnv = argv.mode !== "production";
@@ -83,13 +83,11 @@ module.exports = (env, argv) => {
       stats: "minimal",
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "public", "index.html"),
+        template: path.resolve(__dirname, "src", "index.html"),
         filename: "index.html",
         inject: "body",
-      }),
-      new CopyPlugin({
-        patterns: [{ from: "public", to: "dist" }],
       }),
     ],
   };
